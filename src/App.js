@@ -38,7 +38,7 @@ const center = {
 
 export default function App() {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: "AIzaSyBmC8Hv9ucda_Rpk4hwgunGnNv-2TPhKjk",
     libraries,
   });
   const [markers, setMarkers] = React.useState([]);
@@ -71,9 +71,9 @@ export default function App() {
   return (
     <div>
       <h1>
-        Bears{" "}
+        Locations{" "}
         <span role="img" aria-label="tent">
-          ⛺️
+          🌱
         </span>
       </h1>
 
@@ -97,7 +97,7 @@ export default function App() {
               setSelected(marker);
             }}
             icon={{
-              url: `/bear.svg`,
+              url: `/map_pin.svg`,
               origin: new window.google.maps.Point(0, 0),
               anchor: new window.google.maps.Point(15, 15),
               scaledSize: new window.google.maps.Size(30, 30),
@@ -114,12 +114,9 @@ export default function App() {
           >
             <div>
               <h2>
-                <span role="img" aria-label="bear">
-                  🐻
-                </span>{" "}
-                Alert
+                Help was delivered here
               </h2>
-              <p>Spotted {formatRelative(selected.time, new Date())}</p>
+              <p>{formatRelative(selected.time, new Date())}</p>
             </div>
           </InfoWindow>
         ) : null}
